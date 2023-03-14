@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="script.js"></script>
+    <title>Weather api</title>
+  </head>
+  <body>
+    <!-- <h1>Weather api</h1> -->
+    <!-- // navv start//////////// -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Weather Api</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="ondropdownbyweater">
+                  <li><a class="dropdown-item ondropdownbyweater" href="#">Delhi</a></li>
+                  <li><a class="dropdown-item ondropdownbyweater" href="#">Settle</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item ondropdownbyweater"  href="#">Bangalore</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input id ="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <!-- // nav end/////////// -->
+    <div class="container">
+        <h3 class="my-4 text-center">Weather For <span id="cityName"></span></h3>
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Temparatures</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>Temperature Is <span id="temp"></span></li>
+                      <li> Min Temperature Is <span id="min_temp"></span></li>
+                      <li> Max Temperature Is <span id="max_temp"></span></li>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Humunity Info</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$15<small class="text-muted fw-light">/mo</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li> Cloud Pct Is <span id="cloud_pct"></span></li>
+                        <li> Feels Like Is <span id="feels_like"></span></li>
+                        <li> Humidity Pct Is <span id="humidity"></span></li>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                  <div class="card-header py-3 text-white bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">Sum Info</h4>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li> Wind Speed Is <span id="wind_speed"></span></li>
+                        <li> Wind Degrees Is <span id="wind_degrees"></span></li>
+                        <li> Sunrise Is <span id="sunrise"></span></li>
+                        <!-- <li> Sunset Is <span id="sunset"></span></li> -->
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <h2 class="display-6 text-center mb-4">weather of Other common Places</h2>
+        
+            <div class="table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th style="width: 34%;"></th>
+                    <th style="width: 22%;"> Cloud_pct </div>
+                        <th style="width: 22%;"> Feels_like </div>
+                        <th style="width: 22%;"> Humidity </div>
+                        <th style="width: 22%;"> Max_temp </div>
+                        <th style="width: 22%;"> Min_temp </div>
+                        <th style="width: 22%;"> Sunrise </div>
+                        <th style="width: 22%;"> Sunset </div>
+                        <th style="width: 22%;"> Temp </div>
+                        <th style="width: 22%;"> Wind_degrees </div>
+                        <th style="width: 22%;"> Wind_speed </div>
+                  </tr>
+                </thead>
+                <tbody class="tbody" id="tbodyy">
+                                    
+                </tbody>
+              </table>
+            </div>
+          </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': 'f3e038ee17msh36b7c724e94743ep13ef0fjsn333283763af1',
+            'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
+        }
+    };
+    const getWeather = (city)=>{
+        cityName.innerHTML =city
+        fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city='+city, options)
+            .then(response => response.json())
+            .then(response =>  {
+                console.log(response); 
+                cloud_pct.innerHTML = response.cloud_pct,
+                temp.innerHTML = response.temp,
+                feels_like.innerHTML = response.feels_like,
+                humidity.innerHTML = response.humidity,
+                min_temp.innerHTML = response.min_temp,
+                max_temp.innerHTML = response.max_temp
+                wind_speed.innerHTML = response.wind_speed,
+                wind_degrees.innerHTML = response.wind_degrees,
+                sunrise.innerHTML = response.sunrise
+               // sunset.innerHtml = response. sunset       
+            })     
+        .catch(err => console.error(err));
+    }
+      cityWeather=[];
+    const getWeatherList = (city)=>{
+        cityName.innerHTML =city
+        fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city='+city, options)
+            .then(response => response.json())
+            .then(response =>  {
+                response.state=city;
+                cityWeather.push(response);      
+                renderCityList();
+            })     
+        .catch(err => console.error(err));
+    }
+
+
+    submit.addEventListener('click',(e)=>{
+        e.preventDefault(e);
+        getWeather(city.value);
+      });
+      getWeather("Delhi");
+
+      const stateweathear =["Delhi","Chennai","Lucknow","Bangalore","kolkata"];
+      for(let i=0; i<stateweathear.length; i++){
+        getWeatherList(stateweathear[i]);
+        renderCityList() ;
+
+        console.log("cityWeather===>",cityWeather);
+         
+    }
+    ondropdownbyweater.addEventListener('click',(e)=>{
+        console.log("yes caall"+e.target.innerHTML);
+         getWeather(e.target.innerHTML);
+    });
+    
+
+      function renderCityList()
+    {
+        var html1="";
+        for(let i=0; i<cityWeather.length; i++){
+            console.log("ffff-->",cityWeather[i]);
+           
+            html1 += "<tr>";
+            html1 +="<td>"+cityWeather[i].state+"</td>";
+            html1 +="<td>"+cityWeather[i].cloud_pct+"</td>";
+            html1 +="<td>"+cityWeather[i].temp+"</td>";
+            html1 +="<td>"+cityWeather[i].humidity+"</td>";
+            html1 +="<td>"+cityWeather[i].max_temp+"</td>";
+            html1 +="<td>"+cityWeather[i].min_temp+"</td>";
+            html1 +="<td>"+cityWeather[i].sunrise+"</td>";
+            html1 +="<td>"+cityWeather[i].sunset+"</td>";
+            html1 +="<td>"+cityWeather[i].temp+"</td>";
+            html1 +="<td>"+cityWeather[i].wind_degrees+"</td>";
+            html1 +="<td>"+cityWeather[i].wind_speed+"</td>"; 
+            html1 +="</tr>"
+        }
+
+         document.getElementById('tbodyy').innerHTML = html1;
+    
+    }
+
+</script>
+  </body>
+</html>
